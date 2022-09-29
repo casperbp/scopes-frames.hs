@@ -16,7 +16,9 @@ frontier Empty = []
 frontier Stuck = []
 frontier (Elem l) = [l]
 frontier (Pipe r1 r2) = nub $ frontier r1 ++ frontier r2
-frontier (Dot r1 _) = frontier r1
+frontier (Dot r1 r2) = if isEmpty r1
+  then frontier r2
+  else frontier r1
 frontier (Star r) = frontier r
 
 isEmpty :: RE l -> Bool
