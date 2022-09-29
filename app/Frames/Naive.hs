@@ -32,8 +32,6 @@ instance ( Eq x
     return
       $ shortestPath x
       $ foldr (\ (mv, p) mps' -> case mv of Just v -> (v, p):mps'; _ -> mps') [] mps
-    
-    
     where
       look' x r = do
         f <- ask

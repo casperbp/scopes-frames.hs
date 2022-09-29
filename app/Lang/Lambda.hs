@@ -9,12 +9,14 @@ data Expr
   | Lam String Expr
   | App Expr Expr
   | Var String
-  deriving Show
+  deriving ( Show
+           , Read )
 
 data Val
   = Clo String Expr Frame
   | Num Int
-  deriving Show
+  deriving ( Show
+           , Read )
 
 data Label = P
   deriving Eq
